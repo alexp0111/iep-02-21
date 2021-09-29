@@ -10,5 +10,6 @@ public class Main {
         a = in.nextInt();
         b = 3;
         System.out.println(a+b);
+        System.out.println("hw");
     }
 }
