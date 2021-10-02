@@ -1,4 +1,5 @@
 package com.company;
+//Petrovskiy A. A.
 
 import java.util.Scanner;
 
