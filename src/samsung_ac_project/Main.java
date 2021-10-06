@@ -3,6 +3,6 @@ package samsung_ac_project;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+	// lesson_2
     }
 }
