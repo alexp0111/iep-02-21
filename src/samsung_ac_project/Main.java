@@ -11,15 +11,18 @@ public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int t1, t2, sum;
+        // Personalising reading with scanner
         t1 = read(in);
         t2 = read(in);
         sum = t1 + t2;
+        // Downloading interface with for
         System.out.print("Please, wait: ");
         for (int j = 0; j <= 10; j++) {
             long h = 0;
             System.out.print(j*10 + "% ");
             while (h < 500000000){ h++; }
         }
+        // Else if
         System.out.println();
         if (sum == 100) {
             System.out.println("it is 100");
@@ -31,6 +34,7 @@ public class Main {
                 System.out.println("Sum is: " + sum);
             }
         }
+        // Massive
         System.out.println("Massive:");
         int[] t = new int[10];
         for (int j = 0; j < t.length; j++) {
@@ -38,6 +42,7 @@ public class Main {
             System.out.print(t[j] + " ");
         }
         System.out.println();
+        // Matrix
         System.out.println("Matrix:");
         int[][] m = new int[5][10];
         int counter = 0;
@@ -53,5 +58,6 @@ public class Main {
             }
             System.out.println();
         }
+        //
     }
 }
