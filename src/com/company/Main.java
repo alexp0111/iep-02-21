@@ -14,5 +14,6 @@ public class Main{
             user.setAge(in.next());
             user.setGroup(in.next());
         System.out.println("User " + user.getName() + " has created");
+        //smth
     }
 }
