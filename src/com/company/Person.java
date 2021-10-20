@@ -1,22 +1,27 @@
 package com.company;
 
 public class Person {
+
+    private static int lastID;
+    private static double shortnessPeoplePoint1 = 1.2;
+    private static double shortnessPeoplePoint2 = 1.5;
+
     private String name;
     private double height;
+    private final int id;
 
-
-    public Person(String name, double height) {
-        if (name != null) {
+    public Person(String name, double heightMeter) {
+        id = lastID++;
+        if (name != null && name.length() != 0) {
             this.name = name;
-            this.height = height;
         } else {
-            this.name = "Default name";
-            this.height = 0;
+            this.name = "Default name: " + id;
         }
+        this.height = heightMeter;
     }
 
-    public Person() {
-        this.name = "Default name";
+    public int getId() {
+        return id;
     }
 
     public String getName() {
@@ -24,7 +29,7 @@ public class Person {
     }
 
     public void setName(String name) {
-        if (name == null) return;
+        if (name == null || name.length() == 0) return;
         this.name = name;
     }
 
@@ -34,5 +39,20 @@ public class Person {
 
     public void setHeight(double height) {
         this.height = height;
+    }
+
+    public String getPrettyHeigh(){
+        if (height < shortnessPeoplePoint1){
+            return "Nizkiy";
+        }
+        if (height < shortnessPeoplePoint2){
+            return "HalfMen";
+        }
+        return "Normal";
+    }
+
+    public static void setHeightPoint(double p1, double p2){
+        Person.shortnessPeoplePoint1 = p1;
+        Person.shortnessPeoplePoint2 = p2;
     }
 }
