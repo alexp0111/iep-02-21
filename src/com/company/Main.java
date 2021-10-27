@@ -2,32 +2,41 @@ package com.company;
 //Petrovskiy A. A.
 //20.10.21
 
-import java.text.DecimalFormat;
-import java.util.Random;
-import java.util.Scanner;
+import com.company.Figures.Shapes.Rectangle;
+import com.company.Figures.Shapes.Square;
+import com.company.Interfaces.DamageTaker;
+import com.company.Interfaces.DeathNotifier;
+import com.company.Types.AlyansHero;
+import com.company.Types.Tower;
 
-import static java.lang.Math.random;
+import java.text.DecimalFormat;
+import java.util.Scanner;
 
 public class Main{
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         DecimalFormat df = new DecimalFormat("##.##");
 
-        Person.setHeightPoint(1.3, 1.6);
+        Tower tower = new Tower();
+        Hero alyansHero = new AlyansHero(100);
 
-        Person[] people = getPeople();
-        for (Person p : people)
-            System.out.println("Name: " + p.getName() + " Height: " + df.format(p.getHeight()*100) + " " + p.getPrettyHeigh());
+        DeathNotifier cosoleDeathNotifier = new CosoleDeathNotifier();
+
+        alyansHero.setDeathNotifier(cosoleDeathNotifier);
+
+        System.out.println(alyansHero);
+
+        applySomeDamage(alyansHero);
     }
 
-    private static Person[] getPeople() {
-        return new Person[] {
-                new Person("Alex", random() * 2),
-                new Person("Dima", random() * 2),
-                new Person("Egor", random() * 2),
-                new Person("", random() * 2),
-                new Person("Petya", random() * 2),
-                new Person("Ivan", random() * 2),
-        };
+    private static void applySomeDamage(DamageTaker alyansHero) {
+        System.out.println("==================");
+
+        int d = (int) (Math.random()*200);
+        System.out.println("Damage is: " + d);
+        alyansHero.takeDamage(d);
+        System.out.println(alyansHero);
+
+        System.out.println("==================");
     }
 }
